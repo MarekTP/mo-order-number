@@ -3,7 +3,7 @@
  * Plugin Name:       MO Order Number
  * Plugin URI:        https://github.com/MarekTP/mo-order-number
  * Description:       Lidské číslování objednávek WooCommerce: YYYY+pořadí, YYYYMM+pořadí nebo globální sekvence.
- * Version:           1.1.0
+ * Version:           1.0.0
  * Author:            Marek Olšavský
  * Author URI:        https://olsavsky.cz
  * Text Domain:       mo-order-number
@@ -17,7 +17,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'MON_VERSION',     '1.1.0' );
+define( 'MON_VERSION',     '1.0.0' );
 define( 'MON_PLUGIN_FILE', __FILE__ );
 define( 'MON_PLUGIN_DIR',  plugin_dir_path( __FILE__ ) );
 define( 'MON_GITHUB_USER', 'MarekTP' );
