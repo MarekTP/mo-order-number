@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MO Order Number 1.1.0\n"
-"Report-Msgid-Bugs-To: https://github.com/MarekTP/mo-order-number/issues\n"
-"POT-Creation-Date: 2026-04-24 00:00+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-24 02:26+0000\n"
 "PO-Revision-Date: 2026-04-24 00:00+0000\n"
 "Last-Translator: Marek Olšavský <marek@olsavsky.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
@@ -31,136 +31,147 @@ msgstr "Správa pluginů"
 msgid "YYYY + pořadí v roce  (např. 2026000042)"
 msgstr "YYYY + pořadí v roce  (např. 2026000042)"
 
-#: includes/class-mon-admin.php:26
+#: includes/class-mon-admin.php:25
 msgid "YYYYMM + pořadí v měsíci  (např. 2026040042)"
 msgstr "YYYYMM + pořadí v měsíci  (např. 2026040042)"
 
-#: includes/class-mon-admin.php:31
+#: includes/class-mon-admin.php:29
 msgid "Globální pořadové číslo  (např. 0000000042)"
 msgstr "Globální pořadové číslo  (např. 0000000042)"
 
-#: includes/class-mon-admin.php:51 includes/class-mon-admin.php:52
-#: includes/class-mon-admin.php:118
+#: includes/class-mon-admin.php:48 includes/class-mon-admin.php:49
+#: includes/class-mon-admin.php:114
 msgid "Číslování objednávek"
 msgstr "Číslování objednávek"
 
-#: includes/class-mon-admin.php:65 includes/class-mon-admin.php:316
-#: includes/class-mon-admin.php:358
+#: includes/class-mon-admin.php:62 includes/class-mon-admin.php:305
+#: includes/class-mon-admin.php:344
 msgid "Nedostatečná oprávnění."
 msgstr "Nedostatečná oprávnění."
 
 #. translators: %d: rok
-#: includes/class-mon-admin.php:79
+#: includes/class-mon-admin.php:76
 #, php-format
 msgid "Roční %d"
 msgstr "Roční %d"
 
 #. translators: 1: rok, 2: měsíc
-#: includes/class-mon-admin.php:86
+#: includes/class-mon-admin.php:83
 #, php-format
 msgid "Měsíční %1$d/%2$02d"
 msgstr "Měsíční %1$d/%2$02d"
 
-#: includes/class-mon-admin.php:91
+#: includes/class-mon-admin.php:88
 msgid "Globální"
 msgstr "Globální"
 
-#: includes/class-mon-admin.php:131
+#: includes/class-mon-admin.php:127
 msgid "Formát čísla objednávky"
 msgstr "Formát čísla objednávky"
 
-#: includes/class-mon-admin.php:133
-msgid "Stávající objednávky si ponechají původní čísla. Nový formát se uplatní od příští vytvořené objednávky."
-msgstr "Stávající objednávky si ponechají původní čísla. Nový formát se uplatní od příští vytvořené objednávky."
+#: includes/class-mon-admin.php:129
+msgid ""
+"Stávající objednávky si ponechají původní čísla. Nový formát se uplatní od "
+"příští vytvořené objednávky."
+msgstr ""
+"Stávající objednávky si ponechají původní čísla. Nový formát se uplatní od "
+"příští vytvořené objednávky."
 
-#: includes/class-mon-admin.php:139
+#: includes/class-mon-admin.php:135
 msgid "Předvolba"
 msgstr "Předvolba"
 
-#: includes/class-mon-admin.php:143
+#: includes/class-mon-admin.php:139
 msgid "— vlastní —"
 msgstr "— vlastní —"
 
-#: includes/class-mon-admin.php:154
+#: includes/class-mon-admin.php:150
 msgid "Vzorec (sprintf)"
 msgstr "Vzorec (sprintf)"
 
-#: includes/class-mon-admin.php:161
+#: includes/class-mon-admin.php:157
 #, php-format
-msgid "Poziční argumenty: %1$s = rok (YYYY), %2$s = měsíc (MM), %3$s = pořadové číslo."
-msgstr "Poziční argumenty: %1$s = rok (YYYY), %2$s = měsíc (MM), %3$s = pořadové číslo."
+msgid ""
+"Poziční argumenty: %1$s = rok (YYYY), %2$s = měsíc (MM), %3$s = pořadové "
+"číslo."
+msgstr ""
+"Poziční argumenty: %1$s = rok (YYYY), %2$s = měsíc (MM), %3$s = pořadové "
+"číslo."
 
-#: includes/class-mon-admin.php:162
+#: includes/class-mon-admin.php:158
 #, php-format
 msgid "Příklady: %1$04d%3$06d · %1$04d%2$02d%3$04d · %3$010d"
 msgstr "Příklady: %1$04d%3$06d · %1$04d%2$02d%3$04d · %3$010d"
 
-#: includes/class-mon-admin.php:165
+#: includes/class-mon-admin.php:161
 msgid "Náhled:"
 msgstr "Náhled:"
 
-#: includes/class-mon-admin.php:168
+#: includes/class-mon-admin.php:164
 msgid "⚠ Neplatný vzorec"
 msgstr "⚠ Neplatný vzorec"
 
-#: includes/class-mon-admin.php:175
-msgid "Perioda čítače"
-msgstr "Perioda čítače"
-
+#: includes/class-mon-admin.php:171
+msgid "Automatický reset čítače"
+msgstr "Automatický reset čítače"
+#: includes/class-mon-admin.php:177
+msgid "Resetovat čítač automaticky podle formátu"
+msgstr "Resetovat čítač automaticky podle formátu"
 #: includes/class-mon-admin.php:180
-msgid "Roční – reset každý rok"
-msgstr "Roční – reset každý rok"
-
-#: includes/class-mon-admin.php:183
-msgid "Měsíční – reset každý měsíc"
-msgstr "Měsíční – reset každý měsíc"
+msgid ""
+"Zapnuto: čítač se vrátí na 1 vždy, když formát obsahuje rok nebo měsíc a "
+"nastane nové období. Vypnuto: čítač nikdy automaticky neresetuje."
+msgstr ""
+"Zapnuto: čítač se vrátí na 1 vždy, když formát obsahuje rok nebo měsíc a "
+"nastane nové období. Vypnuto: čítač nikdy automaticky neresetuje."
 
 #: includes/class-mon-admin.php:186
-msgid "Globální – nikdy se neresetuje"
-msgstr "Globální – nikdy se neresetuje"
-
-#: includes/class-mon-admin.php:190
-msgid "Určuje, kdy se pořadové číslo vrátí na 1. Musí odpovídat použitému vzorci."
-msgstr "Určuje, kdy se pořadové číslo vrátí na 1. Musí odpovídat použitému vzorci."
-
-#: includes/class-mon-admin.php:196
 msgid "Uložit změny"
 msgstr "Uložit změny"
 
-#: includes/class-mon-admin.php:202
+#: includes/class-mon-admin.php:192
 msgid "Aktuální stav čítačů"
 msgstr "Aktuální stav čítačů"
 
-#: includes/class-mon-admin.php:204
+#: includes/class-mon-admin.php:194
 msgid "Reset nastaví čítač na 0. Příští objednávka dostane pořadové číslo 1."
 msgstr "Reset nastaví čítač na 0. Příští objednávka dostane pořadové číslo 1."
 
-#: includes/class-mon-admin.php:210
+#: includes/class-mon-admin.php:200
 msgid "Čítač"
 msgstr "Čítač"
 
-#: includes/class-mon-admin.php:211
+#: includes/class-mon-admin.php:201
 msgid "Hodnota"
 msgstr "Hodnota"
 
-#: includes/class-mon-admin.php:292
-msgid "Opravdu resetovat tento čítač na 0? Příští objednávka dostane pořadové číslo 1. Tuto akci nelze vrátit."
-msgstr "Opravdu resetovat tento čítač na 0? Příští objednávka dostane pořadové číslo 1. Tuto akci nelze vrátit."
+#: includes/class-mon-admin.php:281
+msgid ""
+"Opravdu resetovat tento čítač na 0? Příští objednávka dostane pořadové číslo "
+"1. Tuto akci nelze vrátit."
+msgstr ""
+"Opravdu resetovat tento čítač na 0? Příští objednávka dostane pořadové číslo "
+"1. Tuto akci nelze vrátit."
 
-#: includes/class-mon-admin.php:304
+#: includes/class-mon-admin.php:293
 msgid "Resetovat"
 msgstr "Resetovat"
 
-#: includes/class-mon-admin.php:338
+#: includes/class-mon-admin.php:324
 msgid "Neplatný vzorec. Nastavení nebylo uloženo."
 msgstr "Neplatný vzorec. Nastavení nebylo uloženo."
 
-#: includes/class-mon-admin.php:343
+#: includes/class-mon-admin.php:329
 msgid "Nastavení bylo uloženo."
 msgstr "Nastavení bylo uloženo."
 
 #. translators: %s: identifikátor čítače (např. y2026, m202604, global)
-#: includes/class-mon-admin.php:367
+#: includes/class-mon-admin.php:353
 #, php-format
 msgid "Čítač „%s\" byl resetován na 0."
 msgstr "Čítač „%s\" byl resetován na 0."
+
+
+
+
+

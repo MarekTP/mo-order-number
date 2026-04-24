@@ -62,7 +62,7 @@ class MON_Core {
 		$now        = new DateTime( 'now', new DateTimeZone( wp_timezone_string() ) );
 		$year       = (int) $now->format( 'Y' );
 		$month      = (int) $now->format( 'm' );
-		$period_key = self::period_key( $settings['period'], $year, $month );
+		$period_key = self::period_key( $settings['format'], $year, $month, (bool) $settings['auto_reset'] );
 		$seq        = self::next_sequence( $period_key );
 		$number     = self::generate_number( $settings['format'], $year, $month, $seq );
 
@@ -91,14 +91,14 @@ class MON_Core {
 	/**
 	 * Vrátí aktuální nastavení pluginu s výchozími hodnotami.
 	 *
-	 * @return array{ format: string, period: string }
+	 * @return array{ format: string, auto_reset: bool }
 	 */
 	public static function get_settings(): array {
 		return wp_parse_args(
 			(array) get_option( self::OPTION_SETTINGS, [] ),
 			[
-				'format' => '%1$04d%3$06d',
-				'period' => 'year',
+				'format'     => '%1$04d%3$06d',
+				'auto_reset' => true,
 			]
 		);
 	}
@@ -122,16 +122,27 @@ class MON_Core {
 	}
 
 	/**
-	 * Vrátí klíč čítače (suffix za OPTION_COUNTER_PREFIX) pro danou periodu a datum.
+	 * Vrátí klíč čítače odvozený z formátu a nastavení auto_reset.
 	 *
-	 * Příklady: 'y2026', 'm202604', 'global'
+	 * Logika detekce periody:
+	 *   - auto_reset = false  → vždy 'global'
+	 *   - formát obsahuje %2$ (měsíc) → měsíční čítač
+	 *   - formát obsahuje %1$ (rok)   → roční čítač
+	 *   - jinak                        → 'global'
+	 *
+	 * Příklady klíčů: 'y2026', 'm202604', 'global'
 	 */
-	public static function period_key( string $period, int $year, int $month ): string {
-		return match ( $period ) {
-			'month'  => sprintf( 'm%04d%02d', $year, $month ),
-			'global' => 'global',
-			default  => sprintf( 'y%04d', $year ),  // 'year'
-		};
+	public static function period_key( string $format, int $year, int $month, bool $auto_reset = true ): string {
+		if ( ! $auto_reset ) {
+			return 'global';
+		}
+		if ( str_contains( $format, '%2$' ) ) {
+			return sprintf( 'm%04d%02d', $year, $month );
+		}
+		if ( str_contains( $format, '%1$' ) ) {
+			return sprintf( 'y%04d', $year );
+		}
+		return 'global';
 	}
 
 	/**

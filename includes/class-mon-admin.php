@@ -13,24 +13,21 @@ class MON_Admin {
 
 	/**
 	 * Definice předvoleb formátu.
-	 * Klíč → [ format (sprintf vzorec), period (year|month|global) ]
+	 * Klíč → [ label, format (sprintf vzorec) ]
 	 */
 	private static function presets(): array {
 		return [
 			'year'   => [
 				'label'  => __( 'YYYY + pořadí v roce  (např. 2026000042)', 'mo-order-number' ),
 				'format' => '%1$04d%3$06d',
-				'period' => 'year',
 			],
 			'month'  => [
 				'label'  => __( 'YYYYMM + pořadí v měsíci  (např. 2026040042)', 'mo-order-number' ),
 				'format' => '%1$04d%2$02d%3$04d',
-				'period' => 'month',
 			],
 			'global' => [
 				'label'  => __( 'Globální pořadové číslo  (např. 0000000042)', 'mo-order-number' ),
 				'format' => '%3$010d',
-				'period' => 'global',
 			],
 		];
 	}
@@ -73,21 +70,21 @@ class MON_Admin {
 		// Stav všech čítačů
 		$counters = [
 			'year'   => [
-				'key'   => MON_Core::period_key( 'year',   $year, $month ),
+				'key'   => sprintf( 'y%04d', $year ),
 				'label' => sprintf(
 					/* translators: %d: rok */
 					__( 'Roční %d', 'mo-order-number' ), $year
 				),
 			],
 			'month'  => [
-				'key'   => MON_Core::period_key( 'month',  $year, $month ),
+				'key'   => sprintf( 'm%04d%02d', $year, $month ),
 				'label' => sprintf(
 					/* translators: 1: rok, 2: měsíc */
 					__( 'Měsíční %1$d/%2$02d', 'mo-order-number' ), $year, $month
 				),
 			],
 			'global' => [
-				'key'   => MON_Core::period_key( 'global', $year, $month ),
+				'key'   => 'global',
 				'label' => __( 'Globální', 'mo-order-number' ),
 			],
 		];
@@ -98,8 +95,7 @@ class MON_Admin {
 		unset( $c );
 
 		// Příklad čísla s aktuálním nastavením
-		$preview_seq = max( $counters[ $settings['period'] ]['value'], 42 );
-		$preview     = MON_Core::generate_number( $settings['format'], $year, $month, $preview_seq );
+		$preview = MON_Core::generate_number( $settings['format'], $year, $month, 42 );
 
 		// Jednorázové admin hlášení
 		$notice = get_transient( 'mon_admin_notice_' . get_current_user_id() );
@@ -107,10 +103,10 @@ class MON_Admin {
 			delete_transient( 'mon_admin_notice_' . get_current_user_id() );
 		}
 
-		// JSON dat pro JS (presets + texty)
+		// JSON dat pro JS (presets)
 		$js_presets = [];
 		foreach ( self::presets() as $key => $p ) {
-			$js_presets[ $key ] = [ 'format' => $p['format'], 'period' => $p['period'] ];
+			$js_presets[ $key ] = [ 'format' => $p['format'] ];
 		}
 
 		?>
@@ -172,22 +168,16 @@ class MON_Admin {
 					</tr>
 					<tr>
 						<th scope="row">
-							<label for="mon-period"><?php esc_html_e( 'Perioda čítače', 'mo-order-number' ); ?></label>
+							<?php esc_html_e( 'Automatický reset čítače', 'mo-order-number' ); ?>
 						</th>
 						<td>
-							<select id="mon-period" name="mon_period">
-								<option value="year"   <?php selected( $settings['period'], 'year' ); ?>>
-									<?php esc_html_e( 'Roční – reset každý rok', 'mo-order-number' ); ?>
-								</option>
-								<option value="month"  <?php selected( $settings['period'], 'month' ); ?>>
-									<?php esc_html_e( 'Měsíční – reset každý měsíc', 'mo-order-number' ); ?>
-								</option>
-								<option value="global" <?php selected( $settings['period'], 'global' ); ?>>
-									<?php esc_html_e( 'Globální – nikdy se neresetuje', 'mo-order-number' ); ?>
-								</option>
-							</select>
+							<label>
+								<input type="checkbox" name="mon_auto_reset" value="1"
+									<?php checked( $settings['auto_reset'] ); ?>>
+								<?php esc_html_e( 'Resetovat čítač automaticky podle formátu', 'mo-order-number' ); ?>
+							</label>
 							<p class="description">
-								<?php esc_html_e( 'Určuje, kdy se pořadové číslo vrátí na 1. Musí odpovídat použitému vzorci.', 'mo-order-number' ); ?>
+								<?php esc_html_e( 'Zapnuto: čítač se vrátí na 1 vždy, když formát obsahuje rok nebo měsíc a nastane nové období. Vypnuto: čítač nikdy automaticky neresetuje.', 'mo-order-number' ); ?>
 							</p>
 						</td>
 					</tr>
@@ -235,12 +225,11 @@ class MON_Admin {
 			var yearVal  = <?php echo (int) $year; ?>;
 			var monthVal = <?php echo (int) $month; ?>;
 
-			// Předvolba → vyplnit vzorec + periodu
+			// Předvolba → vyplnit vzorec
 			$('#mon-preset').on('change', function() {
 				var key = $(this).val();
 				if ( key && presets[key] ) {
 					$('#mon-format').val( presets[key].format );
-					$('#mon-period').val( presets[key].period );
 				}
 				refreshPreview();
 			});
@@ -316,10 +305,7 @@ class MON_Admin {
 			wp_die( esc_html__( 'Nedostatečná oprávnění.', 'mo-order-number' ) );
 		}
 
-		$allowed_periods = [ 'year', 'month', 'global' ];
-		$period = in_array( $_POST['mon_period'] ?? '', $allowed_periods, true )
-			? sanitize_key( $_POST['mon_period'] )
-			: 'year';
+		$auto_reset = ! empty( $_POST['mon_auto_reset'] );
 
 		// Sanitace vzorce: povoleny jsou jen znaky relevantní pro sprintf formát.
 		$format = sanitize_text_field( wp_unslash( $_POST['mon_format'] ?? '' ) );
@@ -339,7 +325,7 @@ class MON_Admin {
 			self::redirect_back();
 		}
 
-		update_option( MON_Core::OPTION_SETTINGS, compact( 'format', 'period' ) );
+		update_option( MON_Core::OPTION_SETTINGS, compact( 'format', 'auto_reset' ) );
 		self::set_notice( 'success', __( 'Nastavení bylo uloženo.', 'mo-order-number' ) );
 		self::redirect_back();
 	}
@@ -381,7 +367,7 @@ class MON_Admin {
 	 */
 	private static function active_preset( array $settings ): string {
 		foreach ( self::presets() as $key => $p ) {
-			if ( $p['format'] === $settings['format'] && $p['period'] === $settings['period'] ) {
+			if ( $p['format'] === $settings['format'] ) {
 				return $key;
 			}
 		}
