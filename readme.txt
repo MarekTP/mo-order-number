@@ -1,4 +1,4 @@
-=== MO Easy Tools ===
+=== MO Order Numbering ===
 Contributors: Marek Olšavký
 Tags: woocommerce, numbering
 Requires at least: 6.0
@@ -12,7 +12,7 @@ Common WordPress utilities: tracking codes, SVG support, image quality, hide unn
 
 == Description ==
 
-MO Easy Tools is a lightweight utility plugin for WordPress providing:
+MO Order Numbering is a lightweight utility plugin for WordPress providing:
 
 * **Flexible numbering** - predefined variants:
 * * YYYYnnnnnn - year + 6 numbers
