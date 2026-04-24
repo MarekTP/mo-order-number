@@ -1,0 +1,167 @@
+# MO Order Number – překladová šablona
+# Copyright (C) 2026 Marek Olšavský
+# This file is distributed under the GNU GPL v2 or later license.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: MO Order Number 1.1.0\n"
+"Report-Msgid-Bugs-To: https://github.com/MarekTP/mo-order-number/issues\n"
+"POT-Creation-Date: 2026-04-24 00:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Generator: xgettext 0.21\n"
+
+#. translators: %s: odkaz na správu pluginů
+#: mo-order-number.php:49
+#, php-format
+msgid "MO Order Number vyžaduje aktivní plugin WooCommerce. %s"
+msgstr ""
+
+#: mo-order-number.php:51
+msgid "Správa pluginů"
+msgstr ""
+
+#: includes/class-mon-admin.php:21
+msgid "YYYY + pořadí v roce  (např. 2026000042)"
+msgstr ""
+
+#: includes/class-mon-admin.php:26
+msgid "YYYYMM + pořadí v měsíci  (např. 2026040042)"
+msgstr ""
+
+#: includes/class-mon-admin.php:31
+msgid "Globální pořadové číslo  (např. 0000000042)"
+msgstr ""
+
+#: includes/class-mon-admin.php:51 includes/class-mon-admin.php:52
+#: includes/class-mon-admin.php:118
+msgid "Číslování objednávek"
+msgstr ""
+
+#: includes/class-mon-admin.php:65 includes/class-mon-admin.php:316
+#: includes/class-mon-admin.php:358
+msgid "Nedostatečná oprávnění."
+msgstr ""
+
+#. translators: %d: rok
+#: includes/class-mon-admin.php:79
+#, php-format
+msgid "Roční %d"
+msgstr ""
+
+#. translators: 1: rok, 2: měsíc
+#: includes/class-mon-admin.php:86
+#, php-format
+msgid "Měsíční %1$d/%2$02d"
+msgstr ""
+
+#: includes/class-mon-admin.php:91
+msgid "Globální"
+msgstr ""
+
+#: includes/class-mon-admin.php:131
+msgid "Formát čísla objednávky"
+msgstr ""
+
+#: includes/class-mon-admin.php:133
+msgid "Stávající objednávky si ponechají původní čísla. Nový formát se uplatní od příští vytvořené objednávky."
+msgstr ""
+
+#: includes/class-mon-admin.php:139
+msgid "Předvolba"
+msgstr ""
+
+#: includes/class-mon-admin.php:143
+msgid "— vlastní —"
+msgstr ""
+
+#: includes/class-mon-admin.php:154
+msgid "Vzorec (sprintf)"
+msgstr ""
+
+#: includes/class-mon-admin.php:161
+#, php-format
+msgid "Poziční argumenty: %1$s = rok (YYYY), %2$s = měsíc (MM), %3$s = pořadové číslo."
+msgstr ""
+
+#: includes/class-mon-admin.php:162
+#, php-format
+msgid "Příklady: %1$04d%3$06d · %1$04d%2$02d%3$04d · %3$010d"
+msgstr ""
+
+#: includes/class-mon-admin.php:165
+msgid "Náhled:"
+msgstr ""
+
+#: includes/class-mon-admin.php:168
+msgid "⚠ Neplatný vzorec"
+msgstr ""
+
+#: includes/class-mon-admin.php:175
+msgid "Perioda čítače"
+msgstr ""
+
+#: includes/class-mon-admin.php:180
+msgid "Roční – reset každý rok"
+msgstr ""
+
+#: includes/class-mon-admin.php:183
+msgid "Měsíční – reset každý měsíc"
+msgstr ""
+
+#: includes/class-mon-admin.php:186
+msgid "Globální – nikdy se neresetuje"
+msgstr ""
+
+#: includes/class-mon-admin.php:190
+msgid "Určuje, kdy se pořadové číslo vrátí na 1. Musí odpovídat použitému vzorci."
+msgstr ""
+
+#: includes/class-mon-admin.php:196
+msgid "Uložit změny"
+msgstr ""
+
+#: includes/class-mon-admin.php:202
+msgid "Aktuální stav čítačů"
+msgstr ""
+
+#: includes/class-mon-admin.php:204
+msgid "Reset nastaví čítač na 0. Příští objednávka dostane pořadové číslo 1."
+msgstr ""
+
+#: includes/class-mon-admin.php:210
+msgid "Čítač"
+msgstr ""
+
+#: includes/class-mon-admin.php:211
+msgid "Hodnota"
+msgstr ""
+
+#: includes/class-mon-admin.php:292
+msgid "Opravdu resetovat tento čítač na 0? Příští objednávka dostane pořadové číslo 1. Tuto akci nelze vrátit."
+msgstr ""
+
+#: includes/class-mon-admin.php:304
+msgid "Resetovat"
+msgstr ""
+
+#: includes/class-mon-admin.php:338
+msgid "Neplatný vzorec. Nastavení nebylo uloženo."
+msgstr ""
+
+#: includes/class-mon-admin.php:343
+msgid "Nastavení bylo uloženo."
+msgstr ""
+
+#. translators: %s: identifikátor čítače (např. y2026, m202604, global)
+#: includes/class-mon-admin.php:367
+#, php-format
+msgid "Čítač „%s\" byl resetován na 0."
+msgstr ""

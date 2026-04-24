@@ -1,0 +1,166 @@
+# MO Order Number – English (US) translation
+# Copyright (C) 2026 Marek Olšavský
+# This file is distributed under the GNU GPL v2 or later license.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: MO Order Number 1.1.0\n"
+"Report-Msgid-Bugs-To: https://github.com/MarekTP/mo-order-number/issues\n"
+"POT-Creation-Date: 2026-04-24 00:00+0000\n"
+"PO-Revision-Date: 2026-04-24 00:00+0000\n"
+"Last-Translator: Marek Olšavský <marek@olsavsky.cz>\n"
+"Language-Team: English <en@li.org>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Manual\n"
+
+#. translators: %s: link to plugin management page
+#: mo-order-number.php:49
+#, php-format
+msgid "MO Order Number vyžaduje aktivní plugin WooCommerce. %s"
+msgstr "MO Order Number requires WooCommerce to be active. %s"
+
+#: mo-order-number.php:51
+msgid "Správa pluginů"
+msgstr "Plugin Management"
+
+#: includes/class-mon-admin.php:21
+msgid "YYYY + pořadí v roce  (např. 2026000042)"
+msgstr "YYYY + sequence in year  (e.g. 2026000042)"
+
+#: includes/class-mon-admin.php:26
+msgid "YYYYMM + pořadí v měsíci  (např. 2026040042)"
+msgstr "YYYYMM + sequence in month  (e.g. 2026040042)"
+
+#: includes/class-mon-admin.php:31
+msgid "Globální pořadové číslo  (např. 0000000042)"
+msgstr "Global sequence number  (e.g. 0000000042)"
+
+#: includes/class-mon-admin.php:51 includes/class-mon-admin.php:52
+#: includes/class-mon-admin.php:118
+msgid "Číslování objednávek"
+msgstr "Order Numbering"
+
+#: includes/class-mon-admin.php:65 includes/class-mon-admin.php:316
+#: includes/class-mon-admin.php:358
+msgid "Nedostatečná oprávnění."
+msgstr "Insufficient permissions."
+
+#. translators: %d: year
+#: includes/class-mon-admin.php:79
+#, php-format
+msgid "Roční %d"
+msgstr "Yearly %d"
+
+#. translators: 1: year, 2: month
+#: includes/class-mon-admin.php:86
+#, php-format
+msgid "Měsíční %1$d/%2$02d"
+msgstr "Monthly %1$d/%2$02d"
+
+#: includes/class-mon-admin.php:91
+msgid "Globální"
+msgstr "Global"
+
+#: includes/class-mon-admin.php:131
+msgid "Formát čísla objednávky"
+msgstr "Order Number Format"
+
+#: includes/class-mon-admin.php:133
+msgid "Stávající objednávky si ponechají původní čísla. Nový formát se uplatní od příští vytvořené objednávky."
+msgstr "Existing orders will keep their original numbers. The new format will apply from the next order created."
+
+#: includes/class-mon-admin.php:139
+msgid "Předvolba"
+msgstr "Preset"
+
+#: includes/class-mon-admin.php:143
+msgid "— vlastní —"
+msgstr "— custom —"
+
+#: includes/class-mon-admin.php:154
+msgid "Vzorec (sprintf)"
+msgstr "Pattern (sprintf)"
+
+#: includes/class-mon-admin.php:161
+#, php-format
+msgid "Poziční argumenty: %1$s = rok (YYYY), %2$s = měsíc (MM), %3$s = pořadové číslo."
+msgstr "Positional arguments: %1$s = year (YYYY), %2$s = month (MM), %3$s = sequence number."
+
+#: includes/class-mon-admin.php:162
+#, php-format
+msgid "Příklady: %1$04d%3$06d · %1$04d%2$02d%3$04d · %3$010d"
+msgstr "Examples: %1$04d%3$06d · %1$04d%2$02d%3$04d · %3$010d"
+
+#: includes/class-mon-admin.php:165
+msgid "Náhled:"
+msgstr "Preview:"
+
+#: includes/class-mon-admin.php:168
+msgid "⚠ Neplatný vzorec"
+msgstr "⚠ Invalid pattern"
+
+#: includes/class-mon-admin.php:175
+msgid "Perioda čítače"
+msgstr "Counter Period"
+
+#: includes/class-mon-admin.php:180
+msgid "Roční – reset každý rok"
+msgstr "Yearly – reset every year"
+
+#: includes/class-mon-admin.php:183
+msgid "Měsíční – reset každý měsíc"
+msgstr "Monthly – reset every month"
+
+#: includes/class-mon-admin.php:186
+msgid "Globální – nikdy se neresetuje"
+msgstr "Global – never resets"
+
+#: includes/class-mon-admin.php:190
+msgid "Určuje, kdy se pořadové číslo vrátí na 1. Musí odpovídat použitému vzorci."
+msgstr "Determines when the sequence number resets to 1. Must match the pattern in use."
+
+#: includes/class-mon-admin.php:196
+msgid "Uložit změny"
+msgstr "Save Changes"
+
+#: includes/class-mon-admin.php:202
+msgid "Aktuální stav čítačů"
+msgstr "Current Counter Status"
+
+#: includes/class-mon-admin.php:204
+msgid "Reset nastaví čítač na 0. Příští objednávka dostane pořadové číslo 1."
+msgstr "Reset sets the counter to 0. The next order will receive sequence number 1."
+
+#: includes/class-mon-admin.php:210
+msgid "Čítač"
+msgstr "Counter"
+
+#: includes/class-mon-admin.php:211
+msgid "Hodnota"
+msgstr "Value"
+
+#: includes/class-mon-admin.php:292
+msgid "Opravdu resetovat tento čítač na 0? Příští objednávka dostane pořadové číslo 1. Tuto akci nelze vrátit."
+msgstr "Are you sure you want to reset this counter to 0? The next order will receive sequence number 1. This action cannot be undone."
+
+#: includes/class-mon-admin.php:304
+msgid "Resetovat"
+msgstr "Reset"
+
+#: includes/class-mon-admin.php:338
+msgid "Neplatný vzorec. Nastavení nebylo uloženo."
+msgstr "Invalid pattern. Settings were not saved."
+
+#: includes/class-mon-admin.php:343
+msgid "Nastavení bylo uloženo."
+msgstr "Settings saved."
+
+#. translators: %s: counter identifier (e.g. y2026, m202604, global)
+#: includes/class-mon-admin.php:367
+#, php-format
+msgid "Čítač „%s\" byl resetován na 0."
+msgstr "Counter \"%s\" has been reset to 0."
